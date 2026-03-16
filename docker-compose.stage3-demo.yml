@@ -1,0 +1,9 @@
+services:
+  stage3-demo:
+    build:
+      context: ..
+      dockerfile: blackcat-installer/docker/stage3-demo/Dockerfile
+    ports:
+      - "8099:80"
+      - "8449:443"
+    restart: unless-stopped

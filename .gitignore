@@ -1,0 +1,3 @@
+dist/
+.phpunit.result.cache
+*.log

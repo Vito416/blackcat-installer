@@ -1,0 +1,25 @@
+[
+  {
+    "id": "auth-core",
+    "name": "Auth Core",
+    "type": "backend",
+    "composer": ["blackcatacademy/blackcat-auth"],
+    "bootstrap": ["php bin/auth-http --init"],
+    "env": {
+      "AUTH_HTTP_URL": "http://localhost:9000",
+      "AUTH_DB_DSN": "pgsql://auth:secret@localhost/auth"
+    },
+    "docs": "blackcat-auth/README.md"
+  },
+  {
+    "id": "observability",
+    "name": "Observability Stack",
+    "type": "infra",
+    "docker": ["docker compose -f blackcat-observability/docker-compose.yml up -d"],
+    "env": {
+      "OBS_PROMETHEUS_URL": "http://localhost:9090",
+      "OBS_LOKI_URL": "http://localhost:3100"
+    },
+    "docs": "blackcat-observability/README.md"
+  }
+]

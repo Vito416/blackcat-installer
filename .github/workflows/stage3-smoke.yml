@@ -1,0 +1,24 @@
+name: Stage 3 Smoke
+
+on:
+  push:
+    branches: [dev, main]
+  pull_request:
+    branches: [dev, main]
+  workflow_dispatch:
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Stage 3 smoke
+        env:
+          BLACKCAT_VENDOR_BUILDER: docker
+          BLACKCAT_SMOKE_BUILD_BUNDLE: "1"
+        run: |
+          bash scripts/smoke-stage3.sh
+

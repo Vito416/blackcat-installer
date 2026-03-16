@@ -1,0 +1,10 @@
+services:
+  stage3-demo:
+    volumes:
+      # Live-edit the setup UI without rebuilding the image.
+      - ./templates/kernel-minimal/site/_blackcat/setup.php:/srv/bundle/site/_blackcat/setup.php:ro
+      - ./templates/kernel-minimal/site/_blackcat/error-ui.php:/srv/bundle/site/_blackcat/error-ui.php:ro
+      - ./templates/kernel-minimal/site/_blackcat/asset:/srv/bundle/site/_blackcat/asset:ro
+      - ./templates/kernel-minimal/site/public/index.php:/srv/bundle/site/public/index.php:ro
+      - ./templates/kernel-minimal/site/public/.htaccess:/srv/bundle/site/public/.htaccess:ro
+      - ./templates/kernel-minimal/site/public/_blackcat:/srv/bundle/site/public/_blackcat:ro
