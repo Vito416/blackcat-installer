@@ -7,6 +7,8 @@ on:
     branches: [dev, main]
   workflow_dispatch:
 
+permissions: { contents: read }
+
 jobs:
   smoke:
     runs-on: ubuntu-latest
@@ -14,6 +16,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: Stage 3 smoke
         env:
@@ -21,4 +25,3 @@ jobs:
           BLACKCAT_SMOKE_BUILD_BUNDLE: "1"
         run: |
           bash scripts/smoke-stage3.sh
-
